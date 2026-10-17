@@ -1,0 +1,1 @@
+practicing making a uvm testbench that roughly follows the structure of this one from chipverify: https://chipverify.com/uvm/full-uvm-testbench
