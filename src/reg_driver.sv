@@ -22,12 +22,16 @@ class reg_driver extends uvm_driver #(reg_transaction);
       seq_item_port.get_next_item(tr);
 
       @(posedge vif.clk);
+
       vif.wr_en <= tr.wr_en;
       vif.rd_en <= tr.rd_en;
       vif.addr  <= tr.addr;
       vif.wdata <= tr.wdata;
 
       @(posedge vif.clk);           // the DUT acts on this edge
+
+     //here is where the monitor will now see wr_en or rd_en as asserted!
+
       vif.wr_en <= 0;
       vif.rd_en <= 0;
 

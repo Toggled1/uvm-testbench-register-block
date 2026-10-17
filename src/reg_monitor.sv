@@ -23,6 +23,7 @@ class reg_monitor extends uvm_monitor;
     forever begin
       @(posedge vif.clk);
 
+      //wr_en or rd_en will be asserted by the driver at rising edge on line 31 of driver
       if (vif.wr_en) begin
         tr = reg_transaction::type_id::create("tr", this);
         tr.wr_en = 1;
