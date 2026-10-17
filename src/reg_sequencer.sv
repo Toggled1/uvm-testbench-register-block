@@ -1,4 +1,4 @@
-class reg_sequencer extends uvm_sequencer;
+class reg_sequencer extends uvm_sequencer #(reg_transaction);
 
     `uvm_component_utils(reg_sequencer)
 
