@@ -15,7 +15,7 @@ class reg_sequence extends uvm_sequence #(reg_transaction);
    endtask
 
   virtual task body();
-   repeat (5) begin
+   repeat (200) begin
 
     req = reg_transaction::type_id::create("req");
     start_item(req);
