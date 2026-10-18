@@ -11,15 +11,19 @@ module reg_block (reg_if vif);
 
   logic [7:0] mem [0:15];
 
-  always @(posedge vif.clk or negedge vif.rst_n) begin
+  always_ff @(posedge vif.clk or negedge vif.rst_n) begin
+
+    // Reset
     if (!vif.rst_n) begin
       vif.rdata <= 8'h00;
-    end
-    else begin
+    end else begin
+
+      // Write
       if (vif.wr_en) begin
         mem[vif.addr] <= vif.wdata;
-      end
-      else if (vif.rd_en) begin
+
+      //Read
+      end else if (vif.rd_en) begin
         vif.rdata <= mem[vif.addr];
       end
     end
